@@ -1,0 +1,19 @@
+{
+  "name": "book-list-client",
+  "version": "1.0.0",
+  "description": "## Overview This is an exercise exploring server and database administration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SW-VB-Book-List/Book-List-Client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SW-VB-Book-List/Book-List-Client/issues"
+  },
+  "homepage": "https://github.com/SW-VB-Book-List/Book-List-Client#readme"
+}
