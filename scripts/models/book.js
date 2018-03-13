@@ -1,7 +1,7 @@
 'use strict';
 
-const API_URL = 'http://localhost:3000';
-// const API_URL = 'http://sw-vb-book-list.herokuapp.com/api'
+// const API_URL = 'http://localhost:3000';
+const API_URL = 'http://sw-vb-book-list.herokuapp.com/api';
 
 (function(module) {
     const template = Handlebars.compile($('#book-template').html());
@@ -16,10 +16,15 @@ const API_URL = 'http://localhost:3000';
 
     Books.prototype.insert = function(callback) {
         $.post(`${API_URL}/books`, {
-            task: this.task
+            title: this.title,
+            author: this.author,
+            isbn: this.isbn,
+            image_url: this.image_url,
+            description: this.description
         })
             .then(data => {
                 Object.keys(data).forEach(key => this[key] = data[key]);
+                Books.all.push(this);
                 if(callback) callback();
             });
     };
