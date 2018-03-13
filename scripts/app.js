@@ -2,13 +2,17 @@
 
 (function(module) {
 
-    const booksView = module.booksView;
-    const bookDetailView = module.bookDetailView;
-    const newBookView = module.newBookView;
+    $('.icon-menu').on('click', () => {
+        $('.nav-menu').slideToggle(350);
+    });
 
-    page('/', () => booksView.initIndexPage());
-    page('/book-detail-view', () => bookDetailView.init());
-    page('/new-book-view/:id', (ctx) => newBookView.init(ctx.params.id));
+    const Books = module.Books;
+    const booksView = module.booksView;
+
+    page('/all-books', () => Books.fetchAll(booksView.initIndexPage));
+    page('/books/new', () => booksView.initNewBookView());
+    page('/books/:id', ctx => Books.fetchOne(ctx.params.id, booksView.initDetailView));
+    page('*', () => page.redirect('/all-books'));
 
     page({ hashbang: true });
 
