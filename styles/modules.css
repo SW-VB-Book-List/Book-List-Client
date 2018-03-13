@@ -7,6 +7,11 @@
   color: lightgrey;
 }
 
+.nav-menu li {
+  list-style: none;
+  font-size: 1.5em;
+}
+
 .views {
   color: white;
   margin: 1em auto 1em auto;
