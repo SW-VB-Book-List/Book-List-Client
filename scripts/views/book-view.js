@@ -5,8 +5,15 @@
 
     const booksView = {};
 
+    function resetView() { //eslint-disable-line
+        $('.views').hide();
+        $('.nav-menu').slideUp(350);
+    }
+
     booksView.initIndexPage = () => {
+        booksView.resetView();
         booksView.loadBooks();
+        $('#all-books').show();
     };
 
     booksView.loadBooks = () => {
@@ -19,5 +26,16 @@
         $('.books').append(book.toHtml());
     };
 
+    booksView.initNewBookView = () => {
+        booksView.resetView();
+        $('#new-book-view').show();
+    };
+
+    booksView.initDetailView = (data) => {
+        booksView.resetView();
+        booksView.loadBook(data);
+        $('#book-detail-view').show();
+    };
+
     module.booksView = booksView;
-})(window.app || (window.app = {}));
+})(window.app);
