@@ -16,8 +16,8 @@
     };
 
     booksView.loadBook = book => {
-        $('.books').append(book.toHtml());
+        $('.views').append(book.toHtml());
     };
 
     module.booksView = booksView;
-})(window.app || (window.app = {}));
+})(window.module);

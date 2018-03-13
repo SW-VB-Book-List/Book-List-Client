@@ -35,15 +35,41 @@
     </header>
 
     <body>
-      <h1 id="mybooks">my books</h1>
       
-      <section class="books">
+      <section id="all-books" class="views">
+        <h2>All books</h2>
       </section>
+
+      <section id="new-book-view" class="views">
+          <h2>New book</h2>
+      </section>
+
+      <section id="book-detail-view" class="views">
+          <h2>Book detail</h2>
+          <p id="detail-id"></p>
+      </section>
+
+      <script id="error-template" type="text/x-handlebars-template">
+        <h3>Oops, something went wrong!</h3>
+        <p>{{status}}: {{statusText}}</p>
+      </script>
       
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+      <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+
+      <script>
+        const API_URL = window.location.protocol === 'https:'
+            ? 'https://sw-vb-book-list.herokuapp.com/api'
+            : 'http://localhost:3000/api';
+    
+        window.module = {};
+    </script>
       <script src="scripts/models/book.js"></script>
       <script src="scripts/views/book-view.js"></script>
+      <script src="scripts/views/book-detail-view.js"></script>
+      <script src="scripts/views/new-book-view.js"></script>
+      <script src="scripts/app.js"></script>
       <script>
         app.Books.fetchAll(app.booksView.initIndexPage);
       </script>

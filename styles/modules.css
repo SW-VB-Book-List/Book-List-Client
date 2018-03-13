@@ -7,23 +7,19 @@
   color: lightgrey;
 }
 
-#mybooks {
-  text-decoration: underline;
-}
-
-.books {
+.views {
   color: white;
   margin: 1em auto 1em auto;
   margin: 1em;
 }
 
-.books h2 {
+.views h2 {
   margin: 0;
   padding: .5em 0 0 1em;
   text-align: left;
 }
 
-.books img {
+.views img {
   padding: 1em;
 }
 
