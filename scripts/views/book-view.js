@@ -12,29 +12,48 @@
 
     booksView.initIndexPage = () => {
         booksView.resetView();
-        booksView.loadBooks();
         $('#all-books').show();
-    };
 
-    booksView.loadBooks = () => {
+        $('#all-books').empty();
+
         Books.all.forEach(book => {
-            booksView.loadBook(book);
+            $('#all-books').append(book.toHtml());
         });
     };
-
-    booksView.loadBook = book => {
-        $('.views').append(book.toHtml());
-    };
-
+    
     booksView.initNewBookView = () => {
         booksView.resetView();
         $('#new-book-view').show();
+
+        $('add-book')
+            .off('submit')
+            .on('submit', event => {
+                event.preventDefault();
+
+                const data = {
+                    title: $('input[name=title').val(),
+                    author: $('input[name=author').val(),
+                    isbn: $('input[name=isbn').val(),
+                    image_ur: $('input[name=image_url').val(),
+                    description: $('input[name=description').val(),
+                };
+
+                Books.create(data, (book) => {
+                    $('#new-book-view')[0].reset();
+                    page(`/books/${book.id}`);
+                });
+            });
     };
 
-    booksView.initDetailView = (data) => {
+    booksView.initDetailView = () => {
         booksView.resetView();
-        booksView.loadBook(data);
-        $('#book-detail-view').show();
+
+        const html = detailTemplate(Book.detail); //eslint-disable-line
+
+        $('#book-detail-view')
+            .empty()
+            .append(html)
+            .show();
     };
 
     module.booksView = booksView;
