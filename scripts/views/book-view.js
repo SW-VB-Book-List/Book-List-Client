@@ -1,13 +1,12 @@
 'use strict';
 
 (function(module) {
-    const Books = module.Books;
+    const Books = module.Book;
 
     const booksView = {};
 
     booksView.initIndexPage = () => {
         booksView.loadBooks();
-        booksView.handleSubmit();
     };
 
     booksView.loadBooks = () => {
@@ -16,14 +15,5 @@
         });
     };
 
-    booksView.loadBook = () => {
-        $('books').on('submit', event => {
-            event.preventDefault();
-
-            const book = new Book({
-                title: $('title').val();
-            })
-        })
-    }
-
-});
+    module.booksView = booksView;
+})(window.app || (window.app = {}));

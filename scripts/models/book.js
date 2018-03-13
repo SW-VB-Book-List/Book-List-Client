@@ -4,7 +4,7 @@ const API_URL = 'http://localhost:3000';
 // const API_URL = 'http://sw-vb-book-list.herokuapp.com/api'
 
 (function(module) {
-    const template = Books.compile($('#book-template').html());
+    const template = Handlebars.compile($('#book-template').html());
 
     function Books(data) {
         Object.keys(data).forEach(key => this[key] = data[key]);
