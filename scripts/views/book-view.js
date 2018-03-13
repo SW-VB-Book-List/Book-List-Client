@@ -23,7 +23,7 @@
     };
 
     booksView.loadBook = book => {
-        $('.books').append(book.toHtml());
+        $('.views').append(book.toHtml());
     };
 
     booksView.initNewBookView = () => {
@@ -38,4 +38,4 @@
     };
 
     module.booksView = booksView;
-})(window.app);
+})(window.module);
