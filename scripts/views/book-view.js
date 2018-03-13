@@ -52,7 +52,7 @@
     booksView.initDetailView = () => {
         resetView();
 
-        const html = bookDetailTemplate(Book.detail); //eslint-disable-line
+        const html = bookDetailTemplate(Books.detail); //eslint-disable-line
 
         $('#book-detail-view')
             .empty()
@@ -61,5 +61,5 @@
     };
 
     module.booksView = booksView;
-    
+
 })(window.module);
