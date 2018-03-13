@@ -1,8 +1,8 @@
-.pull-left {
+.float-left {
   float: left;
 }
 
-.pull-right {
+.float-right {
   float: right;
 }
 
@@ -17,29 +17,4 @@
   padding: 1em 0;
   margin-left: 1em;
   margin-right: 1em;
-}
-
-.heading-group-h1 {
-  max-width: 80%;
-}
-
-#filters select {
-  width: 90%;
-  margin: .2em 5%;
-}
-
-@media only screen and (min-width: 640px) {
-  .heading-group-h1 {
-    padding: .1em .1em .1em 2em;
-    float: none;
-  }
-
-  #filters select {
-    width: 15em;
-    margin: .2em .2em;
-  }
-
-  #filters li {
-    display: inline;
-  }
 }
