@@ -1,7 +1,7 @@
 'use strict';
 
 (function(module) {
-    const Books = module.Book;
+    const Books = module.Books;
 
     const booksView = {};
 
