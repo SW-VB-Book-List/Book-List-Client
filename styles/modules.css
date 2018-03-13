@@ -1,3 +1,40 @@
+.book-section {
+  margin: 1em;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.books {
+  max-width: 50%;
+  margin: 1em;
+  color: white;
+}
+
+.books h2 {
+  text-align: left;
+  padding: .5em 0 0 1em;
+  margin: 0;
+}
+
+
+.books img {
+  padding: 1em;
+}
+
+.book-text {
+  background-color: grey;
+}
+
+.book-text h3 {
+  text-align: left;
+  padding: .5em 0 0 1em;
+  margin: 0;
+}
+
+.book-text p {
+  padding: 1em;
+}
+
 .site-header {
   background: #FFEAAA;
 }
