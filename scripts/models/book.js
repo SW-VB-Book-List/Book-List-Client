@@ -1,7 +1,7 @@
 'use strict';
 
 // const API_URL = 'http://localhost:3000';
-const API_URL = 'https://sw-vb-book-list.herokuapp.com/api';
+const API_URL = 'https://sw-vb-book-list.herokuapp.com';
 
 (function(module) {
     const template = Handlebars.compile($('#book-template').html());
@@ -36,7 +36,8 @@ const API_URL = 'https://sw-vb-book-list.herokuapp.com/api';
             .then(data => {
                 Books.all = data.map(each => new Books(each));
                 if(callback) callback();
-            });
+            })
+            .catch(console.error);
     };
 
     module.Books = Books;
