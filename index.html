@@ -18,10 +18,21 @@
           <div class="book-text">
             <h2>{{title}}</h2>
             <h3>{{author}}</h3>
-            <p>{{description}}</p>
           </div>
         </section>
       </script>
+
+      <script id="book-detail-template" type="text/x-handlebars">
+        <section class="book-section">
+            <img src="{{image_url}}">
+            <div class="book-text">
+              <h2>{{title}}</h2>
+              <h3>{{author}}</h3>
+              <p>{{description}}</p>
+            </div>
+        </section>
+    </script>
+
     </head>
 
   <div class="wrapper">
@@ -32,9 +43,16 @@
           books app
         </h1>
       </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="/all-books">Home</a></li>
+          <li><a href="/books/new">Add book</a></li>
+        </ul>
+      </nav>
     </header>
 
     <body>
+
       
       <section id="all-books" class="views">
         <h2>All books</h2>
@@ -42,12 +60,39 @@
 
       <section id="new-book-view" class="views">
           <h2>New book</h2>
+          <form id="add-book">
+            <fieldset>
+
+              <legend>New Book</legend>
+              <label>
+                Title:
+                <input type="text" name="title">
+              </label>
+              <label>
+                Author:
+                <input type="text" name="author">
+              </label>
+              <label>
+                ISBN:
+                <input type="text" name="isbn">
+              </label>
+              <label>
+                Image Url:
+                <input type="text" name="image-url">
+              </label>
+              <label>
+                Description:
+                <input type="text-area" name="description">
+              </label>
+              <div>
+                <button>Add Book</button>
+              </div>
+              
+            </fieldset>
+          </form>
       </section>
 
-      <section id="book-detail-view" class="views">
-          <h2>Book detail</h2>
-          <p id="detail-id"></p>
-      </section>
+      <section id="book-detail-view" class="views"></section>
 
       <script id="error-template" type="text/x-handlebars-template">
         <h3>Oops, something went wrong!</h3>
