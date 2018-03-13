@@ -15,5 +15,9 @@
         });
     };
 
+    booksView.loadBook = book => {
+        $('.books').append(book.toHtml());
+    };
+
     module.booksView = booksView;
 })(window.app || (window.app = {}));
