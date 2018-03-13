@@ -15,7 +15,7 @@ const API_URL = 'https://sw-vb-book-list.herokuapp.com';
     };
 
     Books.prototype.insert = function(callback) {
-        $.post(`${API_URL}/books`, {
+        $.post(`${API_URL}/api/books`, {
             title: this.title,
             author: this.author,
             isbn: this.isbn,
@@ -32,7 +32,7 @@ const API_URL = 'https://sw-vb-book-list.herokuapp.com';
     Books.all = [];
 
     Books.fetchAll = function(callback) {
-        $.getJSON(`${API_URL}/books`)
+        $.getJSON(`${API_URL}/api/books`)
             .then(data => {
                 Books.all = data.map(each => new Books(each));
                 if(callback) callback();
