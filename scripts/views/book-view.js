@@ -25,7 +25,7 @@
         resetView();
         $('#new-book-view').show();
 
-        $('add-book')
+        $('#add-book')
             .off('submit')
             .on('submit', event => {
                 event.preventDefault();
@@ -39,7 +39,7 @@
                 };
 
                 Books.create(data, (book) => {
-                    $('#new-book-view')[0].reset();
+                    $('#add-book')[0].reset();
                     page(`/books/${book.id}`);
                 });
             });
