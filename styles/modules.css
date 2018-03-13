@@ -1,11 +1,24 @@
+.wrapper {
+  background-color: lightgrey;
+}
+
 .book-section {
-  margin: 1em;
-  background-color: lightgray;
+  background-color: darkgrey;
+  margin: 1em auto 1em auto;
   border-radius: 10px;
 }
 
+.title {
+  background-color: rgb(60, 60, 60);
+  color: lightgrey;
+}
+
+#mybooks {
+  text-decoration: underline;
+}
+
 .books {
-  max-width: 50%;
+  margin: 1em auto 1em auto;
   margin: 1em;
   color: white;
 }
@@ -16,19 +29,20 @@
   margin: 0;
 }
 
-
 .books img {
   padding: 1em;
 }
 
 .book-text {
-  background-color: grey;
+  border-radius: 0 0 10px 10px;
+  background-color: rgb(60, 60, 60);
 }
 
 .book-text h3 {
   text-align: left;
   padding: .5em 0 0 1em;
   margin: 0;
+  color: lightgrey;
 }
 
 .book-text p {

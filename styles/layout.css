@@ -12,6 +12,13 @@
   clear: both;
 }
 
+.title h1 {
+  text-align: left;
+  padding: 1em 0;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
 .heading-group-h1 {
   max-width: 80%;
 }
