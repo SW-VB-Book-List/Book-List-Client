@@ -13,13 +13,15 @@
       <title>Books</title>
 
       <script id="book-template" type="text/x-handlebars-template">
-        <section class="book-section">
-          <img src="{{image_url}}">
-          <div class="book-text">
-            <h2>{{title}}</h2>
-            <h3>{{author}}</h3>
-          </div>
-        </section>
+        <a href="/books/{{id}}">
+          <section class="book-section">
+            <img src="{{image_url}}">
+            <div class="book-text">
+              <h2>{{title}}</h2>
+              <h3>{{author}}</h3>
+            </div>
+          </section>
+      </a>
       </script>
 
       <script id="book-detail-template" type="text/x-handlebars">
@@ -46,7 +48,7 @@
       <div class="icon-menu"></div>
       <nav class="nav-menu">
         <ul>
-          <li><a href="/all-books">Home</a></li>
+          <li><a href="/home">Home</a></li>
           <li><a href="/books/new">Add book</a></li>
         </ul>
       </nav>
