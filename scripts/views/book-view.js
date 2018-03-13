@@ -3,6 +3,9 @@
 (function(module) {
     const Books = module.Books;
 
+    const bookTemplate = Handlebars.compile($('#book-template').html());
+    const bookDetailTemplate = Handlebars.compile($('#book-detail-template').html());
+
     const booksView = {};
 
     function resetView() { //eslint-disable-line
@@ -17,7 +20,8 @@
         $('#all-books').empty();
 
         Books.all.forEach(book => {
-            $('#all-books').append(book.toHtml());
+            const html = bookTemplate(book);
+            $('#all-books').append(html);
         });
     };
     
@@ -48,7 +52,7 @@
     booksView.initDetailView = () => {
         resetView();
 
-        const html = detailTemplate(Book.detail); //eslint-disable-line
+        const html = bookDetailTemplate(Book.detail); //eslint-disable-line
 
         $('#book-detail-view')
             .empty()
@@ -57,4 +61,5 @@
     };
 
     module.booksView = booksView;
+    
 })(window.module);
