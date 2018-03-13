@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta https-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="styles/base.css">
+      <link rel="stylesheet" href="styles/layout.css">
+      <link rel="stylesheet" href="styles/modules.css">
+      <link rel="stylesheet" href="styles/icons.css">
+      <link rel="stylesheet" href="styles/reset.css">
+
+      <title>Books</title>
+
+      <script id="book-template" type="text/x-handlebars-template">
+        <section class="book-section">
+          <img src="{{image_url}}">
+          <div class="book-text">
+            <h2>{{title}}</h2>
+            <h3>{{author}}</h3>
+            <p>{{description}}</p>
+          </div>
+        </section>
+      </script>
+    </head>
+
+  <div class="wrapper">
+
+    <header>
+      <div class="title">
+        <h1>
+          books app
+        </h1>
+      </div>
+    </header>
+
+    <body>
+      <h1 id="mybooks">my books</h1>
+      
+      <section class="books">
+      </section>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+      <script src="scripts/models/book.js"></script>
+      <script src="scripts/views/book-view.js"></script>
+      <script>
+        app.Books.fetchAll(app.booksView.initIndexPage);
+      </script>
+    </body>
+  </div>
+
+  <footer>
+    <p>(Github logo)</p>
+    <p>(Linkedin logo)</p>
+  </footer>
+</html>
