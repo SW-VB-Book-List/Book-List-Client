@@ -47,7 +47,7 @@
     Books.detail = null;
 
     Books.fetchOne = (id, callback) => {
-        $.getJSON(`${API_URL}/books${id}`)//eslint-disable-line
+        $.getJSON(`${API_URL}/books/${id}`)//eslint-disable-line
             .then(data => {
                 Books.detail = new Books(data);
                 if(callback) callback();
