@@ -14,3 +14,11 @@ h1 {
   margin-right: 1em;
   text-align: left;
 }
+
+a:visited {
+  color: #313131;
+}
+
+a {
+  text-decoration: none;
+}
