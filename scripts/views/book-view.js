@@ -11,7 +11,7 @@
     }
 
     booksView.initIndexPage = () => {
-        booksView.resetView();
+        resetView();
         $('#all-books').show();
 
         $('#all-books').empty();
@@ -22,7 +22,7 @@
     };
     
     booksView.initNewBookView = () => {
-        booksView.resetView();
+        resetView();
         $('#new-book-view').show();
 
         $('add-book')
@@ -46,7 +46,7 @@
     };
 
     booksView.initDetailView = () => {
-        booksView.resetView();
+        resetView();
 
         const html = detailTemplate(Book.detail); //eslint-disable-line
 
