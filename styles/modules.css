@@ -53,3 +53,12 @@
 .book-text p {
   padding: 1em;
 }
+
+#github:before {
+	content: "\e907";
+}
+
+#linkedin {
+  width: 16px;
+  height: 16px;
+};
