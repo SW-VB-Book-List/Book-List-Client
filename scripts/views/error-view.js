@@ -2,16 +2,10 @@
 
 (function(module) {
     const errorView = {};
-
-    function resetView() {
-        $('.views').hide();
-        $('.nav-menu').slideUp(350);
-    }
     
     const template = Handlebars.compile($('#error-template').text());
     
     errorView.init = function(err) {
-        resetView();
 
         const html = template(err);
 
@@ -22,4 +16,5 @@
     };
 
     module.errorView = errorView;
+    
 })(window.module);
