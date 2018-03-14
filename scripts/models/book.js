@@ -57,7 +57,7 @@
 
     Books.create = function(data, callback) {
 
-        $.post(`${API_URL}/books`, data)//eslint-disable-line
+        $.post(`${API_URL}/books/new`, data)//eslint-disable-line
             .then((data) => {
                 if(callback) callback(data);
             })

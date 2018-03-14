@@ -38,7 +38,7 @@
                     title: $('input[name=title').val(),
                     author: $('input[name=author').val(),
                     isbn: $('input[name=isbn').val(),
-                    image_ur: $('input[name=image_url').val(),
+                    image_url: $('input[name=image_url').val(),
                     description: $('input[name=description').val(),
                 };
 
