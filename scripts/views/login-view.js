@@ -32,4 +32,6 @@
 
     };
 
+    module.loginView = loginView;
+
 })(window.module);

@@ -2,11 +2,6 @@
 
 (function(module) {
 
-    // function errorCallback(err) {
-    //     console.log(err);
-    //     module.errorView.init(err);
-    // }
-
     function Books(data) {
         Object.keys(data).forEach(key => this[key] = data[key]);
     }
