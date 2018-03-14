@@ -12,6 +12,7 @@
     page('/home', () => Books.fetchAll(booksView.initIndexPage));
     page('/books/new', () => booksView.initNewBookView());
     page('/books/:id', ctx => Books.fetchOne(ctx.params.id, booksView.initDetailView));
+    page('/admin', () => booksView.initAdminView());
     page('*', () => page.redirect('/home'));
 
     page({ hashbang: true });
