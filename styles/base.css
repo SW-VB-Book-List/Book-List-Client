@@ -16,10 +16,10 @@ h1 {
 }
 
 a:visited {
-  color: #313131;
+  color: black;
 }
 
 a {
   text-decoration: none;
-  color: #313131;
+  color: black;
 }
