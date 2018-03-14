@@ -7,7 +7,7 @@
     });
 
     const resetView = () => {
-        $('/.views').hide();
+        $('.views').hide();
         $('.nav-menu').slideUp(0);
     };
 
