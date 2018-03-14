@@ -2,6 +2,10 @@
 
 (function(module) {
     const Books = module.Books;
+    const User = module.User;
+
+    const errorView = module.errorView;
+    const handleError = err => errorView.init(err);
 
     const bookTemplate = Handlebars.compile($('#book-template').html());
     const bookDetailTemplate = Handlebars.compile($('#book-detail-template').html());
@@ -14,9 +18,8 @@
     }
 
     booksView.initIndexPage = () => {
-        resetView();
+        
         $('#all-books').show();
-
         $('#all-books').empty();
 
         Books.all.forEach(book => {
@@ -35,22 +38,60 @@
                 event.preventDefault();
 
                 const data = {
-                    title: $('input[name=title').val(),
-                    author: $('input[name=author').val(),
-                    isbn: $('input[name=isbn').val(),
-                    image_url: $('input[name=image_url').val(),
-                    description: $('input[name=description').val(),
+                    title: $('input[name=title]').val(),
+                    author: $('input[name=author]').val(),
+                    isbn: $('input[name=isbn]').val(),
+                    image_url: $('input[name=image_url]').val(),
+                    description: $('input[name=description]').val()
                 };
 
-                Books.create(data, (book) => {
-                    $('#add-book')[0].reset();
-                    page(`/books/${book.id}`);
-                });
+                Books.create(data)
+                    .then(book => {
+                        $('#add-book')[0].reset();
+                        page(`/books/${book.id}`);
+                    })
+                    .catch(handleError);
+            });
+    };
+
+    booksView.initUpdate = () => {
+        $('#new-book-view').show();
+
+        const book = Books.detail;
+
+        $('#form-button').value('Update');
+        $('h2.view-title').text('Update Book');
+
+        $('input[name=id]').val(book.id);
+        $('input[name=title]').val(book.title);
+        $('input[name=author]').val(book.author);
+        $('input[name=isbn]').val(book.isbn);
+        $('input[name=image_url]').val(book.image_url);
+        $('input[name=description]').val(book.description);
+        
+        $('#add-book')
+            .off('submit')
+            .on('submit', event => {
+                event.preventDefault();
+
+                const data = {
+                    title: $('input[name=title]').val(),
+                    author: $('input[name=author]').val(),
+                    isbn: $('input[name=isbn]').val(),
+                    image_url: $('input[name=image_url]').val(),
+                    description: $('input[name=description]').val()
+                };
+
+                Books.create(data)
+                    .then(book => {
+                        $('#add-book')[0].reset();
+                        page(`/books/${book.id}`);
+                    })
+                    .catch(handleError);
             });
     };
 
     booksView.initDetailView = () => {
-        resetView();
 
         const html = bookDetailTemplate(Books.detail); //eslint-disable-line
 
@@ -58,6 +99,22 @@
             .empty()
             .append(html)
             .show();
+
+        if(User.current && User.current.isAdmin) {
+            $('#book-delete').on('click', () => {
+                Books.delete(Books.detail.id)
+                    .then(() => {
+                        page('/');
+                    })
+                    .catch(handleError);
+            });
+            $('#book-update').on('click', () => {
+                page(`/books/${Books.detail.id}/update`);
+            });
+        }
+        else {
+            $('#book-actions').hide();
+        }
     };
 
     module.booksView = booksView;
