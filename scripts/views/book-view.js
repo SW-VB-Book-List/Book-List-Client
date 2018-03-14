@@ -10,7 +10,7 @@
 
     function resetView() { //eslint-disable-line
         $('.views').hide();
-        $('.nav-menu').slideUp(350);
+        $('.nav-menu').slideUp(0);
     }
 
     booksView.initIndexPage = () => {

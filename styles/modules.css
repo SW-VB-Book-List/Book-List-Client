@@ -1,5 +1,6 @@
 .wrapper {
   background-color: lightgrey;
+  padding-bottom: .25em;
 }
 
 .title {
@@ -52,6 +53,16 @@
 
 .book-text p {
   padding: 1em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.book-text input {
+  background-color: black;
+  color: white;
+  font-size: 1.5em;
+  margin: .25em .25em;
+  border-width: 1px;
 }
 
 #github:before {

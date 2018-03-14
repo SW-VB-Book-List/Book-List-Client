@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta https-equiv="X-UA-Compatible" content="ie=edge">
-      <link rel="stylesheet" href="styles/base.css">
-      <link rel="stylesheet" href="styles/layout.css">
-      <link rel="stylesheet" href="styles/modules.css">
-      <link rel="stylesheet" href="styles/icons.css">
-      <link rel="stylesheet" href="styles/reset.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta https-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
+    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="styles/reset.css">
 
-      <title>Books</title>
+    <title>Books</title>
 
-      <script id="book-template" type="text/x-handlebars-template">
-        <a href="/books/{{id}}">
-          <section class="book-section">
-            <img src="{{image_url}}">
-            <div class="book-text">
-              <h2>{{title}}</h2>
-              <h3>{{author}}</h3>
-            </div>
-          </section>
-      </a>
-      </script>
-
-      <script id="book-detail-template" type="text/x-handlebars">
+    <script id="book-template" type="text/x-handlebars-template">
+      <a href="/books/{{id}}">
         <section class="book-section">
-            <img src="{{image_url}}">
-            <div class="book-text">
-              <h2>{{title}}</h2>
-              <h3>{{author}}</h3>
-              <p>{{description}}</p>
-            </div>
+          <img src="{{image_url}}">
+          <div class="book-text">
+            <h2>{{title}}</h2>
+            <h3>{{author}}</h3>
+          </div>
         </section>
+      </a>
     </script>
 
-    </head>
+    <script id="book-detail-template" type="text/x-handlebars">
+      <section class="book-section">
+          <img src="{{image_url}}">
+          <div class="book-text">
+            <h2>{{title}}</h2>
+            <h3>{{author}}</h3>
+            <p>{{description}}</p>
+            <input type="submit" value="Delete">
+            <input type="submit" value="Update">
+          </div>
+      </section>
+    </script>
+  </head>
 
   <div class="wrapper">
-
     <header>
       <div class="title">
         <h1>
           books app
         </h1>
       </div>
+
       <div class="icon-menu"></div>
+
       <nav class="nav-menu">
         <ul>
           <li><a href="/home">Home</a></li>
@@ -54,46 +56,53 @@
       </nav>
     </header>
 
-    <body>
-
-      
+    
+    <body>    
       <section id="all-books" class="views">
         <h2>All books</h2>
       </section>
 
       <section id="new-book-view" class="views">
-          <h2>New book</h2>
-          <form id="add-book">
-            <fieldset>
-
-              <legend>New Book</legend>
-              <label>
-                Title:
-                <input type="text" name="title">
-              </label>
-              <label>
-                Author:
-                <input type="text" name="author">
-              </label>
-              <label>
-                ISBN:
-                <input type="text" name="isbn">
-              </label>
-              <label>
-                Image Url:
-                <input type="text" name="image_url">
-              </label>
-              <label>
-                Description:
-                <input type="text-area" name="description">
-              </label>
-              <div>
-                <input type="submit" value="Add Book">
-              </div>
-              
-            </fieldset>
-          </form>
+        <h2>New book</h2>
+        <form id="add-book">
+          <fieldset>
+            <legend>New Book</legend>
+            <label>
+              Title:
+              <input type="text" name="title">
+            </label>
+            <label>
+              Author:
+              <input type="text" name="author">
+            </label>
+            <label>
+              ISBN:
+              <input type="text" name="isbn">
+            </label>
+            <label>
+              Image Url:
+              <input type="text" name="image_url">
+            </label>
+            <label>
+              Description:
+              <input type="text-area" name="description">
+            </label>
+            <div>
+              <input type="submit" value="Add Book">
+            </div>
+          </fieldset>
+        </form>
       </section>
+
+      <section id="admin-view" class="views">
+          <p id="logged-in">
+            You are already logged in.
+          </p>
+          <form id="admin-form">
+            <input id="passphrase" type="text">
+            <input type="submit" value="Submit">
+          </form>
+        </section>
 
       <section id="book-detail-view" class="views"></section>
 
@@ -101,7 +110,7 @@
         <h3>Oops, something went wrong!</h3>
         <p>{{status}}: {{statusText}}</p>
       </script>
-      
+
       <!-- third-party -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
