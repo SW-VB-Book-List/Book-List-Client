@@ -118,6 +118,21 @@
         }
     };
 
+    booksView.initSearch = () => {
+        resetView();
+        $('.search-view').show();
+
+        $('#search-form').on('submit', () => {
+            console.log('You have submitted the form. Good job.');
+        });
+
+        $('#search-button').on('submit', () => {
+            // capture form data as object literal
+
+            // pass the information into the query string and call 'page('/books/search)
+        });
+    };
+
     module.booksView = booksView;
 
 })(window.module);

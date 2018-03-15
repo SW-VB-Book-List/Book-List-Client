@@ -24,6 +24,10 @@
             });
     };
 
+    Books.find = () => {
+        console.log(`You have initiated Books.find, but it's not done yet.`);
+    };
+
     Books.create = data => {
         return $.post(`${API_URL}/books/new`, data)//eslint-disable-line
     };

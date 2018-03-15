@@ -109,6 +109,31 @@
 
       <section id="book-detail-view" class="views"></section>
 
+      <section class="search-view" class="views">
+        <form>
+          <fieldset>
+            <label>
+              Title:
+              <input type="text" name="author">
+            </label>
+            <label>
+              Author:
+              <input type="text" name="isbn">
+            </label>
+            <label>
+              Other Thing:
+              <input type="text" name="image_url">
+            </label>
+            <div>
+              <input id="search-button" type="submit" value="Search Google Books">
+            </div>
+          </fieldset>
+        </form>
+
+        <ul id="search-list">
+        </ul>
+      </section>
+
       <script id="error-template" type="text/x-handlebars-template">
         <h3>Oops, something went wrong!</h3>
         <p>{{status}}: {{statusText}}</p>
