@@ -120,17 +120,49 @@
 
     booksView.initSearch = () => {
         resetView();
-        $('.search-view').show();
+        $('#search-view').show();
 
-        $('#search-form').on('submit', () => {
-            console.log('You have submitted the form. Good job.');
-        });
+        $('#search-api')
+            .off('submit')
+            .on('submit', event => {
+                event.preventDefault();
 
-        $('#search-button').on('submit', () => {
-            // capture form data as object literal
+                const book = {
+                    title: $('input[name=search-title]').val(),
+                    author: $('input[name=search-author]').val(),
+                    isbn: $('input[name=search-isbn]').val(),
+                };
+                
+                Books.find(book)
+                    .then( () => {
+                        $('#search-form')[0].reset();
+                        $('#search-list')
+                            .empty()
+                            .append(Books.search)
+                            .show();
+                    });
+            });
 
-            // pass the information into the query string and call 'page('/books/search)
-        });
+        $('#import-book')
+            .off('submit')
+            .on('submit', event => {
+            // capture the data from the page and create a new database entry
+                event.preventDefault();
+
+                const data = {
+                    title: $('input[name=search-title]').val(),
+                    author: $('input[name=search-author]').val(),
+                    isbn: $('input[name=search-isbn]').val(),
+                };
+
+                Books.create(data)
+                    .then(book => {
+                        $('#add-book')[0].reset();
+                        page(`/books/${book.id}`);
+                    })
+                    .catch(handleError);
+            });
+
     };
 
     module.booksView = booksView;

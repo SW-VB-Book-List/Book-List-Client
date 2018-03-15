@@ -55,6 +55,7 @@
         <ul>
           <li><a href="/home">Home</a></li>
           <li><a href="/books/new">Add Book</a></li>
+          <li><a href="/books/search">Search</a></li>
           <li><a href="/admin">Log In</a></li>
         </ul>
       </nav>
@@ -109,23 +110,26 @@
 
       <section id="book-detail-view" class="views"></section>
 
-      <section class="search-view" class="views">
-        <form>
+      <section id="search-view" class="views">
+        <form id="search-form">
           <fieldset>
             <label>
               Title:
-              <input type="text" name="author">
+              <input type="text" name="search-title">
             </label>
             <label>
               Author:
-              <input type="text" name="isbn">
+              <input type="text" name="search-author">
             </label>
             <label>
-              Other Thing:
-              <input type="text" name="image_url">
+              ISBN:
+              <input type="text" name="search-isbn">
             </label>
             <div>
-              <input id="search-button" type="submit" value="Search Google Books">
+              <input id="search-api" type="submit" value="Search Google Books">
+            </div>
+            <div>
+              <input id="import-book" type="submit" value="Add to Books">
             </div>
           </fieldset>
         </form>

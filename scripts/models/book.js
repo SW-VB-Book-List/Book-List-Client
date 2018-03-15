@@ -24,8 +24,12 @@
             });
     };
 
-    Books.find = () => {
-        console.log(`You have initiated Books.find, but it's not done yet.`);
+    Books.find = (data) => {
+        console.log(`Books.find initiated.`);
+        return $.getJSON(`${API_URL}/gbooks/:${data.title.trim()}${data.author.trim()}${data.isbn.trim()}`) //eslint-disable-line
+            .then(result => {
+                Books.search = result;
+            });
     };
 
     Books.create = data => {
