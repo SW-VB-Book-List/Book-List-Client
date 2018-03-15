@@ -122,7 +122,7 @@
         resetView();
         $('#search-view').show();
 
-        $('#search-api')
+        $('#search-form')
             .off('submit')
             .on('submit', event => {
                 event.preventDefault();
@@ -136,17 +136,15 @@
                 Books.find(book)
                     .then( () => {
                         $('#search-form')[0].reset();
-                        $('#search-list')
-                            .empty()
-                            .append(Books.search)
-                            .show();
-                    });
+                        page('/books/search');
+                    })
+                    .catch(handleError);
             });
 
         $('#import-book')
             .off('submit')
             .on('submit', event => {
-            // capture the data from the page and create a new database entry
+
                 event.preventDefault();
 
                 const data = {
@@ -162,7 +160,6 @@
                     })
                     .catch(handleError);
             });
-
     };
 
     module.booksView = booksView;

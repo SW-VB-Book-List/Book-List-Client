@@ -69,7 +69,7 @@
   border-width: 1px;
 }
 
-#new-book-view label {
+#new-book-view label, #search-view label {
   display: block;
 }
 
