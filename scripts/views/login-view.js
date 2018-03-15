@@ -9,12 +9,12 @@
     loginView.init = () => {
         if(User.isAdmin) {
             $('#admin-form').hide();
-            $('#logged-in').hide();
+            $('#logged-in').show();
         } else {
             $('#admin-form').off('submit').on('submit', handleSubmit);
             $('#logged-in').hide();
         }
-        $('admin-view').show();
+        $('#admin-view').show();
     };
 
     const handleSubmit = event => {

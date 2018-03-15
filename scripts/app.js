@@ -22,15 +22,13 @@
 
     page('/home', () => Books.fetchAll().then(booksView.initIndexPage));
 
-    page('/login', loginView.init);
+    page('/admin', loginView.init);
 
     page('/books/new', booksView.initNewBookView);
 
     page('/books/:id/update', ctx => Books.fetchOne(ctx.params.id).then( booksView.initUpdate));
 
     page('/books/:id', ctx => Books.fetchOne(ctx.params.id).then( booksView.initDetailView));
-
-    
 
     page('*', () => page.redirect('/home'));
 

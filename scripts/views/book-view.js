@@ -59,7 +59,7 @@
 
         const book = Books.detail;
 
-        $('#form-button').value('Update');
+        $('#form-button').val('Update');
         $('h2.view-title').text('Update Book');
 
         $('input[name=id]').val(book.id);
@@ -75,6 +75,7 @@
                 event.preventDefault();
 
                 const data = {
+                    id: $('input[name=id]').val(),
                     title: $('input[name=title]').val(),
                     author: $('input[name=author]').val(),
                     isbn: $('input[name=isbn]').val(),
@@ -104,7 +105,7 @@
             $('#book-delete').on('click', () => {
                 Books.delete(Books.detail.id)
                     .then(() => {
-                        page('/');
+                        page('/home');
                     })
                     .catch(handleError);
             });
