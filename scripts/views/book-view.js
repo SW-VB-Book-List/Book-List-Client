@@ -75,7 +75,7 @@
                 event.preventDefault();
 
                 const data = {
-                    id: $('input[name=id]').val(),
+                    id: book.id,
                     title: $('input[name=title]').val(),
                     author: $('input[name=author]').val(),
                     isbn: $('input[name=isbn]').val(),
@@ -83,8 +83,8 @@
                     description: $('input[name=description]').val()
                 };
 
-                Books.create(data)
-                    .then(book => {
+                Books.update(data)
+                    .then( () => {
                         $('#add-book')[0].reset();
                         page(`/books/${book.id}`);
                     })
