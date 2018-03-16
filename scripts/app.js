@@ -26,7 +26,10 @@
 
     page('/books/new', booksView.initNewBookView);
 
-    page('/books/search', booksView.initSearch);
+    page('/books/search', ctx => {
+        const search = Qs.parse(ctx.querystring).search;
+        Books.find(search).then(booksView.initSearch);
+    });
 
     page('/books/:id/update', ctx => Books.fetchOne(ctx.params.id).then( booksView.initUpdate));
 

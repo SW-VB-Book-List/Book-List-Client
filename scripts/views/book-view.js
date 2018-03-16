@@ -124,42 +124,51 @@
 
         $('#search-form')
             .off('submit')
-            .on('submit', event => {
-                event.preventDefault();
-
-                const book = {
-                    title: $('input[name=search-title]').val(),
-                    author: $('input[name=search-author]').val(),
-                    isbn: $('input[name=search-isbn]').val(),
-                };
-                
-                Books.find(book)
-                    .then( () => {
-                        $('#search-form')[0].reset();
-                        page('/books/search');
-                    })
-                    .catch(handleError);
-            });
+            .on('submit', booksView.handleSearch);
 
         $('#import-book')
             .off('submit')
-            .on('submit', event => {
+            .on('submit', booksView.handleImport);
 
-                event.preventDefault();
+    };
 
-                const data = {
-                    title: $('input[name=search-title]').val(),
-                    author: $('input[name=search-author]').val(),
-                    isbn: $('input[name=search-isbn]').val(),
-                };
+    booksView.handleSearch = event => {
+        event.preventDefault();
+        const form = event.target;
+        const search = form.elments.search.value;
+        page(`${API_URL}/gbooks?search=${encodeURIComponent(search)}`); //eslint-disable-line
 
-                Books.create(data)
-                    .then(book => {
-                        $('#add-book')[0].reset();
-                        page(`/books/${book.id}`);
-                    })
-                    .catch(handleError);
-            });
+        // const book = {
+        //     title: $('input[name=search-title]').val(),
+        //     author: $('input[name=search-author]').val(),
+        //     isbn: $('input[name=search-isbn]').val(),
+        // };
+        
+        // Books.find(book)
+        //     .then( () => {
+        //         $('#search-form')[0].reset();
+        //         page('/books/search');
+        //     })
+        //     .catch(handleError);
+
+        module.booksView = booksView;
+    };
+
+    booksView.handleImport = () => {
+        event.preventDefault();
+
+        const data = {
+            title: $('input[name=search-title]').val(),
+            author: $('input[name=search-author]').val(),
+            isbn: $('input[name=search-isbn]').val(),
+        };
+
+        Books.create(data)
+            .then(book => {
+                $('#add-book')[0].reset();
+                page(`/books/${book.id}`);
+            })
+            .catch(handleError);
     };
 
     module.booksView = booksView;

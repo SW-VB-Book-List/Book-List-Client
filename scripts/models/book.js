@@ -11,7 +11,7 @@
     Books.fetchAll = () => {
         return $.getJSON(`${API_URL}/books`)//eslint-disable-line
             .then(data => {
-                Books.all = data.map(each => new Books(each)); 
+                Books.all = data.map(each => new Books(each));
             });
     };
 
@@ -24,11 +24,12 @@
             });
     };
 
-    Books.find = (data) => {
-        console.log(`Books.find initiated.`);
-        return $.getJSON(`${API_URL}/gbooks/:${data.title.trim()}${data.author.trim()}${data.isbn.trim()}`) //eslint-disable-line
+    Books.find = search => {
+        Books.search = search;
+        return $.getJSON(`${API_URL}/gbooks?search=${encodeURIComponent(search)}`) //eslint-disable-line
             .then(result => {
-                Books.search = result;
+                Books.founds = result.books;
+                Books.total = result.total;
             });
     };
 
