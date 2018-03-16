@@ -138,19 +138,6 @@
         const search = form.elments.search.value;
         page(`${API_URL}/gbooks?q=${encodeURIComponent(search)}`); //eslint-disable-line
 
-        // const book = {
-        //     title: $('input[name=search-title]').val(),
-        //     author: $('input[name=search-author]').val(),
-        //     isbn: $('input[name=search-isbn]').val(),
-        // };
-        
-        // Books.find(book)
-        //     .then( () => {
-        //         $('#search-form')[0].reset();
-        //         page('/books/search');
-        //     })
-        //     .catch(handleError);
-
         module.booksView = booksView;
     };
 
