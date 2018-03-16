@@ -26,7 +26,7 @@
 
     Books.find = (data) => {
         console.log(`Books.find initiated.`);
-        return $.getJSON(`${API_URL}/gbooks/:${data.title.trim()}${data.author.trim()}${data.isbn.trim()}`) //eslint-disable-line
+        return $.getJSON(`${GOOGLE_BOOKS_URL}/${data.title.trim() || data.author.trim() || data.isbn.trim()}`) //eslint-disable-line
             .then(result => {
                 Books.search = result;
             });
