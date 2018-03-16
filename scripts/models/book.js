@@ -26,7 +26,7 @@
 
     Books.find = search => {
         Books.search = search;
-        return $.getJSON(`${API_URL}/gbooks?search=${encodeURIComponent(search)}`) //eslint-disable-line
+        return $.getJSON(`${API_URL}/gbooks?q=${encodeURIComponent(search)}`) //eslint-disable-line
             .then(result => {
                 Books.founds = result.books;
                 Books.total = result.total;

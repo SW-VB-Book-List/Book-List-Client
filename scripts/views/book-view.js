@@ -136,7 +136,7 @@
         event.preventDefault();
         const form = event.target;
         const search = form.elments.search.value;
-        page(`${API_URL}/gbooks?search=${encodeURIComponent(search)}`); //eslint-disable-line
+        page(`${API_URL}/gbooks?q=${encodeURIComponent(search)}`); //eslint-disable-line
 
         // const book = {
         //     title: $('input[name=search-title]').val(),
