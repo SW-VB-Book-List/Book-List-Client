@@ -118,50 +118,6 @@
         }
     };
 
-    booksView.initSearch = () => {
-        resetView();
-        $('#search-view').show();
-
-        $('#search-form')
-            .off('submit')
-            .on('submit', event => {
-                event.preventDefault();
-
-                const book = {
-                    title: $('input[name=search-title]').val(),
-                    author: $('input[name=search-author]').val(),
-                    isbn: $('input[name=search-isbn]').val(),
-                };
-                
-                Books.find(book)
-                    .then( () => {
-                        $('#search-form')[0].reset();
-                        page('/books/search');
-                    })
-                    .catch(handleError);
-            });
-
-        $('#import-book')
-            .off('submit')
-            .on('submit', event => {
-
-                event.preventDefault();
-
-                const data = {
-                    title: $('input[name=search-title]').val(),
-                    author: $('input[name=search-author]').val(),
-                    isbn: $('input[name=search-isbn]').val(),
-                };
-
-                Books.create(data)
-                    .then(book => {
-                        $('#add-book')[0].reset();
-                        page(`/books/${book.id}`);
-                    })
-                    .catch(handleError);
-            });
-    };
-
     module.booksView = booksView;
 
 })(window.module);

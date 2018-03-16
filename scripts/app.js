@@ -12,6 +12,7 @@
     };
 
     const Books = module.Books;
+    const Gbook = module.Gbook;
     const booksView = module.booksView;
     const loginView = module.loginView;
 
@@ -26,11 +27,16 @@
 
     page('/books/new', booksView.initNewBookView);
 
-    page('/books/search', booksView.initSearch);
+    // page('/books/search', booksView.initSearch);
 
     page('/books/:id/update', ctx => Books.fetchOne(ctx.params.id).then( booksView.initUpdate));
 
     page('/books/:id', ctx => Books.fetchOne(ctx.params.id).then( booksView.initDetailView));
+
+    page('/books/search', ctx => {
+        const search = Qs.parse(ctx.querystring).search; //eslint-disable-line
+        Gbook.find(search).then(gbookView.init);
+    });
 
     page('*', () => page.redirect('/home'));
 

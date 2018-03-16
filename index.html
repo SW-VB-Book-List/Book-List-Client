@@ -12,6 +12,17 @@
 
     <title>Books</title>
 
+    <script id="gbook-template" type="text/x-handlebars">
+      <li class="gbook-items">
+          <p>
+              {{title}}
+              <button data-id="{{id}}">Add to watch</button>
+          </p>
+          
+          <img src="{{image_url}}" alt="{{title}}">
+      </li>
+  </script>
+
     <script id="book-template" type="text/x-handlebars-template">
       <a href="/books/{{id}}">
         <section class="book-section">
@@ -111,31 +122,13 @@
       <section id="book-detail-view" class="views"></section>
 
       <section id="search-view" class="views">
-        <form id="search-form">
-          <fieldset>
-            <label>
-              Title:
-              <input type="text" name="search-title">
-            </label>
-            <label>
-              Author:
-              <input type="text" name="search-author">
-            </label>
-            <label>
-              ISBN:
-              <input type="text" name="search-isbn">
-            </label>
-            <div>
-              <input id="search-api" type="submit" value="Search Google Books">
-            </div>
-            <div>
-              <input id="import-book" type="submit" value="Add to Books">
-            </div>
-          </fieldset>
-        </form>
+          <h2 class="view-title">Movies To Watch</h2>
+          <form id="gbook-search">
+              <input required name="search">
+              <button>Search</button>
+          </form>
 
-        <ul id="search-list">
-        </ul>
+          <ul id="gbooks"></ul>
       </section>
 
       <script id="error-template" type="text/x-handlebars-template">
@@ -147,6 +140,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
       <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.5.1/qs.min.js"></script>
 
       <script>
         const API_URL = window.location.protocol === 'https:'

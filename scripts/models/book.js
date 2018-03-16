@@ -24,14 +24,6 @@
             });
     };
 
-    Books.find = (data) => {
-        console.log(`Books.find initiated.`);
-        return $.getJSON(`${GOOGLE_BOOKS_URL}/${data.title.trim() || data.author.trim() || data.isbn.trim()}`) //eslint-disable-line
-            .then(result => {
-                Books.search = result;
-            });
-    };
-
     Books.create = data => {
         return $.post(`${API_URL}/books/new`, data)//eslint-disable-line
     };
@@ -48,6 +40,13 @@
         return $.ajax({
             url: `${API_URL}/books/${id}`,//eslint-disable-line
             method: 'DELETE'
+        });
+    };
+
+    Books.addGbook = id => {
+        return $.ajax({
+            url: `${API_URL}/books/gbooks/${id}`,
+            method: 'PUT'
         });
     };
 
